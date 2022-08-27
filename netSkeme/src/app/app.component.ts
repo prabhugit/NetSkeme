@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { VirtualTimeScheduler } from 'rxjs';
 import layeredData from '../public/layeredData.json';
+import { Item } from './item';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ import layeredData from '../public/layeredData.json';
 export class AppComponent {
   elements = layeredData.layerElements;
   title = 'netSkeme';
+  currentItem = { name: 'newLayer'} ;
+
   value: boolean = false;
   color1?:String;
   color2?:String;
@@ -28,4 +31,13 @@ export class AppComponent {
   retainDiv(){
     this.value = true;
   }
+
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
+
+  deleteItem(item: Item) {
+    alert(`Delete the ${item.name}.`);
+  }
+
 }
