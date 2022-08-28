@@ -23,7 +23,7 @@ export class AppComponent {
   elements = layeredData.layerElements;
   title = 'netSkeme';
   currentItem = { name: 'newLayer'} ;
-
+  selectedNav = "settings"
   value: boolean = false;
   color1?:String;
   color2?:String;
@@ -35,8 +35,20 @@ export class AppComponent {
   color8?:String;
   color9?:String;
 
-  changeText() {
-    this.value= !this.value
+  changeText(event: any,item: string) {
+    console.log(this,event);
+    // if(item!==this.selectedNav){
+      if(this.selectedNav === item){
+        this.selectedNav='';  
+      }else {
+        this.selectedNav=item;
+      }
+
+    //   this.value= !this.value
+    // } else {
+      // this.value= !this.value
+    // }
+    
   }
 
   retainDiv(){

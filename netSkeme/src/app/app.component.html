@@ -6,31 +6,54 @@
 
 <div class="sidebar">
   <ul>
-    <li><mat-icon><span class="material-symbols-outlined">
-      settings
-      </span></mat-icon></li>
-    <li>Symbols</li>
-    <li><mat-icon><span class="material-symbols-outlined">
-      settings
-      </span></mat-icon>Ports</li>
-    <li><mat-icon><span class="material-symbols-outlined">
-      lightbulb
-      </span>
-      </mat-icon></li>
-      <li>FPT</li>
-    <li (mousedown)="changeText()"><mat-icon> layers</mat-icon></li>
-    <li (mousedown)="changeText()">Layers</li>
+    <li (mousedown)="changeText($event,'settings')" [ngClass]="{active : selectedNav ==='settings'}">
+      <mat-icon>
+        <span class="material-symbols-outlined">
+          settings
+        </span>
+      </mat-icon>
+      <span>Symbols</span>
+    
+    
+    </li>
+    
+    <li (mousedown)="changeText($event,'ports')" [ngClass]="{active : selectedNav ==='ports'}">
+      <mat-icon class="commit">
+        <span class="material-symbols-outlined">
+          commit
+        </span>
+      </mat-icon>
+      <span>Ports</span>
+    </li>
+    <li (mousedown)="changeText($event,'fpt')" [ngClass]="{active : selectedNav ==='fpt'}">
+      <mat-icon>
+        <span class="material-symbols-outlined">
+          lightbulb
+        </span>
+      </mat-icon>
+      <span>FPT</span>
+    </li>
+     
+    <li (mousedown)="changeText($event,'layers')" [ngClass]="{active : selectedNav ==='layers'}">
+      <mat-icon>  
+        <span class="material-symbols-outlined">
+          layers
+        </span>
+      </mat-icon>
+      <span>Layers</span>
+    </li>
+   
   </ul>
 </div>
 
 <div class="flex-fill">
-<div *ngIf="value" class="bg-box-hidden" (mouseover)="retainDiv()" >
+<div *ngIf="selectedNav ==='layers'" class="bg-box-hidden" (mouseover)="retainDiv()" >
 
   <div class="labelWrappper">
     <h2>Layers</h2>
     <hr />
     <div>
-    <ng-scrollbar class="virtual-scroll " visibility="hover" appearance="compact">
+    <ng-scrollbar class="virtual-scroll" [autoHeightDisabled]="false" visibility="hover" appearance="compact">
 
       <div *ngFor="let element of elements" class="elementWrapper">
         <div>{{element.elementName}} </div>
@@ -48,49 +71,66 @@
   </div>
 
 
-  <div *ngIf="value" class="bg-box-hidden" (mouseover)="retainDiv()" >
+  <!-- <div *ngIf="value" class="bg-box-hidden" (mouseover)="retainDiv()" > -->
     <div class="addWrapper">
 
       <div >
-        <div>+ New Layer</div>
-        <h4>{{currentItem.name}}</h4>
-        <input [value]="currentItem.name" (input)="currentItem.name=getValue($event)">
+        <div>
+          <a href="#">+ New Layer</a>
+        </div>
+        <!-- <h4>{{currentItem.name}}</h4> -->
+        <!-- <input [value]="currentItem.name" (input)="currentItem.name=getValue($event)"> -->
       </div>
 
-      <div>X Delete Layer
-        <app-layer-item (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-layer-item>
+      <div>
+        <a href="#">X Delete Layer</a>
+        <!-- <app-layer-item (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-layer-item> -->
       </div>
 
 
 
     </div>
-    <div ><h2>Layer properties</h2>
+    <div class="layerProperties">
+    <div>
+      <h2>Layer properties</h2>
       <hr />
     </div>
     <div>
-      <h4>Layertype</h4>
+      <div>
+      <mat-label>Layertype</mat-label>
+      
       <mat-form-field appearance="fill">
-        <mat-label>Layertype</mat-label>
+        
         <mat-select [(value)]="selectedType">
           <!-- <mat-option></mat-option> -->
           <mat-option [value]="option.value" *ngFor="let option of ltype">{{ option.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+    <div>
 
-
-      <h4>Layerweight</h4>
+      <mat-label>Layerweight</mat-label>
       <mat-form-field appearance="fill">
-        <mat-label>Layerweight</mat-label>
+        
         <mat-select [(value)]="selectedWeight">
           <!-- <mat-option></mat-option> -->
           <mat-option [value]="option.value" *ngFor="let option of lweight">{{ option.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>
-
     </div>
+    </div>
+  </div>
+<!-- </div> -->
 
 </div>
-
+<div *ngIf="selectedNav ==='settings'" class="bg-box-hidden" (mouseover)="retainDiv()">
+  <div>Settings</div>
+</div>
+<div *ngIf="selectedNav ==='ports'" class="bg-box-hidden" (mouseover)="retainDiv()">
+  <div>Ports</div>
+</div>
+<div *ngIf="selectedNav ==='fpt'" class="bg-box-hidden" (mouseover)="retainDiv()">
+  <div>FPT</div>
 </div>
 </div>
 

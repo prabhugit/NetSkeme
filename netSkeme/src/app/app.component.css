@@ -30,10 +30,6 @@
   }
 
   .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 60px;
     display: flex;
     align-items: center;
@@ -321,41 +317,82 @@
 
   .bodyWrapper{
     display:flex;
-
+    
   }
 
 
   .sidebar {
-    width:7vw;
-    height:95vh;
+    width:80px;
+    height:calc(100vh - 60px);
     background-color:#313741;
-   margin-top:45px;
+   
 
 }
-
-ul {
+.sidebar ul li.active, .sidebar ul li:hover {
+  background-color: #3B4453;
+}
+.sidebar ul {
     list-style-type:none;
     color:#EAF2FF;
     float:left;
+    width: 100%;
+    padding: 0;
 }
 
+.sidebar ul li {
+  padding: 20px 10px;
+  width: 100%;
+  cursor: pointer;
+}
+.sidebar ul li mat-icon {
+  width: 100%;
+  text-align: center;
+  transform: scale(1.4);
+}
+.sidebar mat-icon.commit {
+  transform: scale(2) !important;
+}
+.sidebar ul li > span {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
 .bg-box-hidden {
-    width:25vw;
-    height:93.2vh;
+    min-width:350px;
+    max-width: 25vw;
+    height: calc(100vh - 60px);
     background-color:#3B4453;
-    margin-top:60px;
-
+    overflow: auto;
+  color: white;
+}
+.bg-box-hidden * {
+  color: white;
 }
 
+
+.bg-box-hidden mat-form-field ,.bg-box-hidden mat-label {
+  width: 50%;
+  display: inline-block;
+}
+.layerProperties mat-form-field-wrapper .mat-form-field-flex{
+  padding: 0 !important;
+}
+.layerProperties mat-form-field-wrapper .mat-select-value {
+color: white !important;
+}
 .labelWrappper{
-    margin:10px;
+    padding:1rem;
     color:#EAF2FF;
     font-size:14px;
     overflow-x: hidden;
     overflow-y: auto;
     white-space: nowrap;
-    max-height: 250px;
+    /* max-height: 250px; */
+    
 
+}
+.layerProperties {
+  padding: 1rem;;
 }
 ::ng-deep color-picker open {
     left:0px;
@@ -399,10 +436,12 @@ ul {
 .addWrapper{
     display:flex;
     justify-content: space-between;
-    margin-top:15px;
+    margin:15px;
     color:#206ce7;
 }
-
+.addWrapper a {
+  color: #66C1EA !important;
+}
 .whitecolor1{
     width:15px;
     height:15px;
@@ -417,8 +456,8 @@ ul {
       --scrollbar-border-radius: 10px;
 
       margin: 0rem;
-      height: 200px;
-      max-height: 200px;
+      /* height: 50vh; */
+      max-height: 35vh;
 
       overflow: hidden;
 
