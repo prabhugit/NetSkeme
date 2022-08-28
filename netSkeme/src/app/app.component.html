@@ -52,8 +52,8 @@
   <div class="labelWrappper">
     <h2>Layers</h2>
     <hr />
-    <div>
-    <ng-scrollbar class="virtual-scroll" [autoHeightDisabled]="false" visibility="hover" appearance="compact">
+    <div class="layerWrapper">
+    <!-- <ng-scrollbar class="virtual-scroll" [autoHeightDisabled]="false" visibility="hover" appearance="compact"> -->
 
       <div *ngFor="let element of elements" class="elementWrapper" [ngClass]="{active : selectedLayer && element.id === selectedLayer.id}" (mousedown)="selectLayer($event, element.id)">
         <div class="elementLeft">{{element.elementName}} </div>
@@ -66,11 +66,13 @@
               <span class="material-symbols-outlined">lightbulb</span>
             </mat-icon>
           </span>
+          
           <span class="{{element.colorName}}" [(colorPicker)]=element.colorCode [style.background]=element.colorCode></span>
+          
       </div>
       </div>
 
-    </ng-scrollbar>
+    <!-- </ng-scrollbar> -->
     </div>
   </div>
 
@@ -141,6 +143,9 @@
 </div>
 <div *ngIf="selectedNav ==='fpt'" class="bg-box-hidden" (mouseover)="retainDiv()">
   <div>FPT</div>
+</div>
+<div class="rightBody">
+dasf
 </div>
 </div>
 

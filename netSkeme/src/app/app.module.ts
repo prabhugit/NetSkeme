@@ -11,6 +11,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { LayerItemComponent } from './layer-item/layer-item.component';
+import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { LayerItemComponent } from './layer-item/layer-item.component';
     MatSelectModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

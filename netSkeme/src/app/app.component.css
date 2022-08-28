@@ -338,6 +338,16 @@
     width: 100%;
     padding: 0;
 }
+.rightBody {
+  height: calc(100vh - 60px);
+  
+    /* margin-left: calc(100vh - 60px - 25vw); */
+    /* width: 75vw; */
+
+   vertical-align: top;
+    display: inline-flex;
+  
+}
 
 .sidebar ul li {
   padding: 20px 10px;
@@ -364,6 +374,7 @@
     background-color:#3B4453;
     overflow: auto;
   color: white;
+  display: inline-block;
 }
 .bg-box-hidden * {
   color: white !important;
@@ -395,9 +406,13 @@
     overflow-x: hidden;
     overflow-y: auto;
     white-space: nowrap;
-    /* max-height: 250px; */
+    
     
 
+}
+.layerWrapper {
+  max-height: 35vh;
+  overflow-y: auto;
 }
 .layerProperties {
   padding: 1rem;;
@@ -405,6 +420,13 @@
 ::ng-deep color-picker open {
     left:0px;
     width: 250px;
+    z-index: 1000;
+    
+  }
+  ::ng-deep color-picker{
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
   }
 .elementWrapper{
     display:flex;

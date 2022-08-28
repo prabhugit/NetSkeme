@@ -36,6 +36,7 @@ export class AppComponent {
   color7?:String;
   color8?:String;
   color9?:String;
+  
 
   changeText(event: any,item: string) {
     console.log(this,event);
