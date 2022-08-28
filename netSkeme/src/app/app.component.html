@@ -56,14 +56,18 @@
     <ng-scrollbar class="virtual-scroll" [autoHeightDisabled]="false" visibility="hover" appearance="compact">
 
       <div *ngFor="let element of elements" class="elementWrapper">
-        <div>{{element.elementName}} </div>
-        <div>
-          <mat-icon>
-            <span class="material-symbols-sharp">lock</span>
-            <span class="material-symbols-outlined">lightbulb</span>
-          </mat-icon>
-        </div>
-        <div class="{{element.colorName}}" [(colorPicker)]=element.colorCode [style.background]=element.colorCode></div>
+        <div class="elementLeft">{{element.elementName}} </div>
+        <div class="elementRight">
+          <span class="iconRow">
+            <mat-icon>
+              <span class="material-symbols-sharp">lock</span>
+            </mat-icon>
+            <mat-icon>
+              <span class="material-symbols-outlined">lightbulb</span>
+            </mat-icon>
+          </span>
+          <span class="{{element.colorName}}" [(colorPicker)]=element.colorCode [style.background]=element.colorCode></span>
+      </div>
       </div>
 
     </ng-scrollbar>
