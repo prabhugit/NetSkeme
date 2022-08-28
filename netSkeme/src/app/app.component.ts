@@ -25,6 +25,7 @@ export class AppComponent {
   currentItem = { name: 'newLayer'} ;
   selectedNav = "settings"
   value: boolean = false;
+  name= "New Layer";
   color1?:String;
   color2?:String;
   color3?:String;
