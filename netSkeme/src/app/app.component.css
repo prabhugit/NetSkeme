@@ -413,7 +413,7 @@
     position: relative;
     padding: 3px 3px 0 3px;
 }
-.elementWrapper:hover {
+.elementWrapper:hover,.elementWrapper.active {
   background-color: #333A48 !important;
 }
 .elementLeft,  .elementRight {

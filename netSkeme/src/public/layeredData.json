@@ -2,44 +2,68 @@
     "name": "Layer",
     "comp":"NavBar",
     "layerElements":[{
+        "id":1,
         "elementName":"0",
         "colorName":"whitecolor",
-        "colorCode":"color1"
+        "colorCode":"color1",
+        "lineType":"ByLayer",
+        "lineWeight":"ByLayer"
     },
     {
+        "id":2,
         "elementName":"ISO_LIN_ASS",
         "colorName":"purplecolor",
-        "colorCode":"color2"
+        "colorCode":"color2",
+        "lineType":"ByLayer",
+        "lineWeight":"0.0 mm"
     },
     {
+        "id":3,
         "elementName":"ISO_LIN_CON",
         "colorName":"orangecolor",
-        "colorCode":"color3"
+        "colorCode":"color3",
+        "lineType":"ByLayer",
+        "lineWeight":"ByLayer"
     },
     {
+        "id":4,
         "elementName":"ISO_LIN_DRA",
         "colorName":"whitecolor1",
-        "colorCode":"color4"
+        "colorCode":"color4",
+        "lineType":"ByLayer",
+        "lineWeight":"ByLayer"
     },
     {
+        "id":5,
         "elementName":"ISO_LIN_FLU",
         "colorName":"bluecolor",
-        "colorCode":"color5"
+        "colorCode":"color5",
+        "lineType":"ByLayer",
+        "lineWeight":"ByLayer"
     },
     {
+        "id":6,
         "elementName":"ISO_LIN_HAT",
         "colorName":"greencolor",
-        "colorCode":"color6"
+        "colorCode":"color6",
+        "lineType":"ByLayer",
+        "lineWeight":"ByLayer"
     },
     {
+        "id":7,
         "elementName":"ISO_LIN_PRE",
         "colorName":"whitecolor1",
-        "colorCode":"color7"
+        "colorCode":"color7",
+        "lineType":"ByLayer",
+        "lineWeight":"0.0 mm"
     },
     {
+        "id":8,
         "elementName":"ISO_LIN_UNI",
         "colorName":"orangecolor",
-        "colorCode":"color8"
+        "colorCode":"color8",
+        "lineType":"ByLayer",
+        "lineWeight":"0.0 mm"
     }
 
 ]

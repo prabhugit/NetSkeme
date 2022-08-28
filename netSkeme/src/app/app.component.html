@@ -55,7 +55,7 @@
     <div>
     <ng-scrollbar class="virtual-scroll" [autoHeightDisabled]="false" visibility="hover" appearance="compact">
 
-      <div *ngFor="let element of elements" class="elementWrapper">
+      <div *ngFor="let element of elements" class="elementWrapper" [ngClass]="{active : selectedLayer && element.id === selectedLayer.id}" (mousedown)="selectLayer($event, element.id)">
         <div class="elementLeft">{{element.elementName}} </div>
         <div class="elementRight">
           <span class="iconRow">
@@ -80,21 +80,21 @@
 
       <div >
         <div>
-          <a href="#">+ New Layer</a>
+          <a href="#" (mousedown)="addNewLayer($event)">+ New Layer</a>
         </div>
         <!-- <h4>{{currentItem.name}}</h4> -->
         <!-- <input [value]="currentItem.name" (input)="currentItem.name=getValue($event)"> -->
       </div>
 
       <div>
-        <a href="#">X Delete Layer</a>
+        <a href="#"><span style="color: red !important"> X </span>Delete Layer </a>
         <!-- <app-layer-item (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-layer-item> -->
       </div>
 
 
 
     </div>
-    <div class="layerProperties">
+    <div *ngIf="selectedLayer" class="layerProperties">
     <div>
       <h2>Layer properties</h2>
       <hr />
@@ -103,7 +103,7 @@
       <div>
         <mat-label>Name</mat-label>
         <mat-form-field appearance="fill">
-          <input matInput type="text" [value]="name">
+          <input matInput type="text" [value]="selectedLayer.elementName" (keyup)="selectName($event)">
         </mat-form-field>
       
        
@@ -113,7 +113,7 @@
       
       <mat-form-field appearance="fill">
         
-        <mat-select [(value)]="selectedType"  class="selectValue">
+        <mat-select [(value)]="selectedLayer.lineType"  class="selectValue" >
           <mat-option [value]="option.value" *ngFor="let option of ltype">{{ option.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -123,7 +123,7 @@
       <mat-label>Lineweight</mat-label>
       <mat-form-field appearance="fill">
         
-        <mat-select [(value)]="selectedWeight">
+        <mat-select [(value)]="selectedLayer.lineWeight">
           <mat-option [value]="option.value" *ngFor="let option of lweight">{{ option.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>

@@ -25,6 +25,7 @@ export class AppComponent {
   currentItem = { name: 'newLayer'} ;
   selectedNav = "settings"
   value: boolean = false;
+  selectedLayer?: any;
   name= "New Layer";
   color1?:String;
   color2?:String;
@@ -80,13 +81,51 @@ export class AppComponent {
   
   selectType(event: Event) {
     this.selectedType = (event.target as HTMLSelectElement).value;
+    this.elements.map(e=>{
+      if(e.id===this.selectedLayer.id){
+        e.lineType=this.selectedType;
+      }
+    })
+    
+
   }
   selectName(event: Event) {
+    console.log("name change")
     this.name = (event.target as HTMLSelectElement).value;
+    this.selectedLayer.elementName = this.name
+    this.elements.map(e=>{
+      if(e.id===this.selectedLayer.id){
+        e.elementName=this.name;
+      }
+    })
   }
-
+  addNewLayer(event: Event){
+    console.log("Add new layer event",event);
+    let id=this.elements.length+1;
+    this.selectedLayer={
+      id,
+      elementName: this.name,
+      colorName: "orangecolor",
+      colorCode: "color8",
+      lineType: "ByLayer",
+      lineWeight: "ByLayer"
+    }
+    this.elements.push(this.selectedLayer)
+  }
   selectWeight(event: Event) {
     this.selectedWeight = (event.target as HTMLSelectElement).value;
+
+    this.elements.map(e=>{
+      if(e.id===this.selectedLayer.id){
+        e.lineWeight=this.selectedWeight;
+      }
+    })
   }
 
+  selectLayer(event: Event, id: Number){
+    let selectedLayer = this.elements.find(e=> e.id===id);
+    console.log(selectedLayer);
+    this.selectedLayer=selectedLayer;
+    
+  }
 }
