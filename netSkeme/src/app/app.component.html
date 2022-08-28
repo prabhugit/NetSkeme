@@ -87,14 +87,14 @@
       </div>
 
       <div>
-        <a href="#"><span style="color: red !important"> X </span>Delete Layer </a>
+        <a href="#" (mousedown)="deleteLayer($event)"><span style="color: red !important"> X </span>Delete Layer </a>
         <!-- <app-layer-item (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-layer-item> -->
       </div>
 
 
 
     </div>
-    <div *ngIf="selectedLayer" class="layerProperties">
+    <div *ngIf="selectedLayer !== undefined" class="layerProperties">
     <div>
       <h2>Layer properties</h2>
       <hr />

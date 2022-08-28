@@ -20,7 +20,7 @@ interface Lineweight {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  elements = layeredData.layerElements;
+  elements = [...layeredData.layerElements];
   title = 'netSkeme';
   currentItem = { name: 'newLayer'} ;
   selectedNav = "settings"
@@ -111,6 +111,17 @@ export class AppComponent {
       lineWeight: "ByLayer"
     }
     this.elements.push(this.selectedLayer)
+  }
+
+  deleteLayer(event: Event){
+    console.log("Deleting",this.selectedLayer);
+    if(this.selectedLayer){
+      let updatedElements =this.elements.filter(e=> e.id!==this.selectedLayer.id);
+      console.log("updatedELements",updatedElements);
+      this.selectedLayer = undefined;
+      this.elements = [...updatedElements];
+    }
+    console.log("After Deleting",this.selectedLayer);
   }
   selectWeight(event: Event) {
     this.selectedWeight = (event.target as HTMLSelectElement).value;
