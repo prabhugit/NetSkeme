@@ -3,6 +3,17 @@ import { VirtualTimeScheduler } from 'rxjs';
 import layeredData from '../public/layeredData.json';
 import { Item } from './item';
 
+
+interface Linetype {
+  value: string;
+  viewValue: string;
+}
+
+interface Lineweight {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,6 +49,28 @@ export class AppComponent {
 
   deleteItem(item: Item) {
     alert(`Delete the ${item.name}.`);
+  }
+
+  ltype: Linetype[] = [
+    {value: 'ByLayer', viewValue: '_______ ByLayer'},
+    {value: 'Continuous', viewValue: '_______ Continuous'},
+    {value: 'Dashed', viewValue: '-------- Dashed'},
+  ];
+  lweight: Lineweight[] = [
+    {value: 'ByLayer', viewValue: 'ByLayer'},
+    {value: '0.0 mm', viewValue: '0.0 mm'},
+    {value: '0.20 mm', viewValue: '0.20 mm'},
+    {value: '1.50 mm', viewValue: '1.50 mm'},
+  ];
+  selectedType = this.ltype[0].value;
+  selectedWeight = this.lweight[0].value;
+
+  selectType(event: Event) {
+    this.selectedType = (event.target as HTMLSelectElement).value;
+  }
+
+  selectWeight(event: Event) {
+    this.selectedWeight = (event.target as HTMLSelectElement).value;
   }
 
 }

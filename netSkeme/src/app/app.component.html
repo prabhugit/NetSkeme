@@ -30,16 +30,20 @@
     <h2>Layers</h2>
     <hr />
     <div>
-      <ng-scrollbar class="virtual-scroll " visibility="hover" appearance="compact">
+    <ng-scrollbar class="virtual-scroll " visibility="hover" appearance="compact">
 
       <div *ngFor="let element of elements" class="elementWrapper">
         <div>{{element.elementName}} </div>
-        <div><mat-icon><span class="material-symbols-sharp">
-          lock
-          </span></mat-icon>
-          </div>
+        <div>
+          <mat-icon>
+            <span class="material-symbols-sharp">lock</span>
+            <span class="material-symbols-outlined">lightbulb</span>
+          </mat-icon>
+        </div>
         <div class="{{element.colorName}}" [(colorPicker)]=element.colorCode [style.background]=element.colorCode></div>
-      </div></ng-scrollbar>
+      </div>
+
+    </ng-scrollbar>
     </div>
   </div>
 
@@ -49,10 +53,8 @@
 
       <div >
         <div>+ New Layer</div>
-        <h4>Result: {{currentItem.name}}</h4>
-
-        <input [value]="currentItem.name"
-             (input)="currentItem.name=getValue($event)">
+        <h4>{{currentItem.name}}</h4>
+        <input [value]="currentItem.name" (input)="currentItem.name=getValue($event)">
       </div>
 
       <div>X Delete Layer
@@ -65,7 +67,27 @@
     <div ><h2>Layer properties</h2>
       <hr />
     </div>
-  </div>
+    <div>
+      <h4>Layertype</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Layertype</mat-label>
+        <mat-select [(value)]="selectedType">
+          <!-- <mat-option></mat-option> -->
+          <mat-option [value]="option.value" *ngFor="let option of ltype">{{ option.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <h4>Layerweight</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Layerweight</mat-label>
+        <mat-select [(value)]="selectedWeight">
+          <!-- <mat-option></mat-option> -->
+          <mat-option [value]="option.value" *ngFor="let option of lweight">{{ option.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
 
 </div>
 
