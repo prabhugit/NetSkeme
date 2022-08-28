@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -24,7 +25,7 @@ import { LayerItemComponent } from './layer-item/layer-item.component';
     NgScrollbarModule,
     ColorPickerModule,
     MatSelectModule,
-    MatIconModule
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

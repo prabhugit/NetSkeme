@@ -96,21 +96,20 @@
       <hr />
     </div>
     <div>
-      <!-- <div>
+      <div>
         <mat-label>Name</mat-label>
         <mat-form-field appearance="fill">
-          <input matInput placeholder="Name" [value]="name"/>
+          <input matInput type="text" [value]="name">
         </mat-form-field>
       
        
-      </div> -->
+      </div>
       <div>
       <mat-label>Linetype</mat-label>
       
       <mat-form-field appearance="fill">
         
         <mat-select [(value)]="selectedType"  class="selectValue">
-          <!-- <mat-option></mat-option> -->
           <mat-option [value]="option.value" *ngFor="let option of ltype">{{ option.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -121,7 +120,6 @@
       <mat-form-field appearance="fill">
         
         <mat-select [(value)]="selectedWeight">
-          <!-- <mat-option></mat-option> -->
           <mat-option [value]="option.value" *ngFor="let option of lweight">{{ option.viewValue }}</mat-option>
         </mat-select>
       </mat-form-field>

@@ -384,6 +384,10 @@
 ::ng-deep  .mat-select-value-text {
   color: white !important;
 }
+::ng-deep .layerProperties .mat-form-field-appearance-fill .mat-form-field-underline::before
+{
+ background-color: #8D9195 !important;
+}
 .labelWrappper{
     padding:1rem;
     color:#EAF2FF;

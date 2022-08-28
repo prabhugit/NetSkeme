@@ -77,9 +77,12 @@ export class AppComponent {
   ];
   selectedType = this.ltype[0].value;
   selectedWeight = this.lweight[0].value;
-
+  
   selectType(event: Event) {
     this.selectedType = (event.target as HTMLSelectElement).value;
+  }
+  selectName(event: Event) {
+    this.name = (event.target as HTMLSelectElement).value;
   }
 
   selectWeight(event: Event) {
