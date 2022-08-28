@@ -422,7 +422,7 @@
 }
 .elementRight > span:nth-child(2){
   display: inline-block;
-  
+  cursor: pointer;
   margin: 5px;
   margin-right: 10px;
   height: 15px;
@@ -439,10 +439,12 @@
 .elementRight .iconRow mat-icon {
   padding: 2px;
   display: none;
+  cursor: pointer;
 }
 .elementWrapper:hover 
 .elementRight .iconRow mat-icon {
   display: inline-block;
+  cursor: pointer;
 }
 .elementRight .iconRow mat-icon:hover {
   border: 1px solid #356D8C ;
