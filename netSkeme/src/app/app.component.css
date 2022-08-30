@@ -368,13 +368,16 @@
   width: 100%;
 }
 .bg-box-hidden {
-    min-width:350px;
-    max-width: 25vw;
+    width:300px;
+    min-width: 250px;
     height: calc(100vh - 60px);
     background-color:#3B4453;
     overflow: auto;
   color: white;
-  display: inline-block;
+  display: inline-flex;
+  border-right: solid 1px #dedfe2;
+  position: relative;
+  margin: auto;
 }
 .bg-box-hidden * {
   color: white !important;
@@ -457,6 +460,10 @@
 .elementWrapper:hover,.elementWrapper.active {
   background-color: #333A48 !important;
 }
+.elementWrapper.active {
+  background-color: #3A5E75 !important;
+}
+
 .elementLeft,  .elementRight {
   display: inline-block;
   width: 50%;
@@ -471,24 +478,25 @@
 }
 .elementRight {
   text-align: right;
-  margin-right: 5px;
   position: relative;
 }
 .elementRight .iconRow {
   margin-right: 10px;
+  display: inline-block;
 }
-.elementRight .iconRow mat-icon {
+.elementRight .iconRow mat-icon > span{
   padding: 2px;
-  display: none;
+  transition: all ease-in-out;
   cursor: pointer;
 }
 .elementWrapper:hover 
-.elementRight .iconRow mat-icon {
+.elementRight .iconRow mat-icon > span {
   display: inline-block;
   cursor: pointer;
 }
 .elementRight .iconRow mat-icon:hover {
   border: 1px solid #356D8C ;
+  display: inline-block;
 }
 .whitecolor{
     width:15px;
@@ -557,3 +565,42 @@
 } */
 
 
+.mwlResizable {
+  box-sizing: border-box; 
+}
+
+.resize-handle-top,
+.resize-handle-bottom {
+  position: absolute;
+  height: 5px;
+  cursor: row-resize;
+  width: 100%;
+}
+
+.resize-handle-top {
+  top: 0;
+}
+
+.resize-handle-bottom {
+  bottom: 0;
+}
+
+.resize-handle-left,
+.resize-handle-right {
+  position: absolute;
+  height: 100%;
+  cursor: col-resize;
+  width: 5px;
+}
+
+.resize-handle-left {
+  left: 0;
+}
+
+.resize-handle-right {
+  right: 0;
+}
+
+.hide {
+  display: none;
+}

@@ -7,7 +7,10 @@
         "colorName":"whitecolor",
         "colorCode":"color1",
         "lineType":"ByLayer",
-        "lineWeight":"ByLayer"
+        "lineWeight":"ByLayer",
+        "lock": false,
+        "on": false,
+        "hover": false
     },
     {
         "id":1,
@@ -15,7 +18,11 @@
         "colorName":"purplecolor",
         "colorCode":"color2",
         "lineType":"ByLayer",
-        "lineWeight":"0.0 mm"
+        "lineWeight":"0.0 mm",
+        "lock": false,
+        "on": false,
+        "hover": false
+
     },
     {
         "id":2,
@@ -23,7 +30,10 @@
         "colorName":"orangecolor",
         "colorCode":"color3",
         "lineType":"ByLayer",
-        "lineWeight":"ByLayer"
+        "lineWeight":"ByLayer",
+        "lock": false,
+        "on": false,
+        "hover": false
     },
     {
         "id":3,
@@ -31,7 +41,10 @@
         "colorName":"whitecolor1",
         "colorCode":"color4",
         "lineType":"ByLayer",
-        "lineWeight":"ByLayer"
+        "lineWeight":"ByLayer",
+        "lock": false,
+        "on": false,
+        "hover": false
     },
     {
         "id":4,
@@ -39,7 +52,10 @@
         "colorName":"bluecolor",
         "colorCode":"color5",
         "lineType":"ByLayer",
-        "lineWeight":"ByLayer"
+        "lineWeight":"ByLayer",
+        "lock": false,
+        "on": false,
+        "hover": false
     },
     {
         "id":5,
@@ -47,7 +63,10 @@
         "colorName":"greencolor",
         "colorCode":"color6",
         "lineType":"ByLayer",
-        "lineWeight":"ByLayer"
+        "lineWeight":"ByLayer",
+        "lock": false,
+        "on": false,
+        "hover": false
     },
     {
         "id":6,
@@ -55,7 +74,10 @@
         "colorName":"whitecolor1",
         "colorCode":"color7",
         "lineType":"ByLayer",
-        "lineWeight":"0.0 mm"
+        "lineWeight":"0.0 mm",
+        "lock": false,
+        "on": false,
+        "hover": false
     },
     {
         "id":7,
@@ -63,7 +85,10 @@
         "colorName":"orangecolor",
         "colorCode":"color8",
         "lineType":"ByLayer",
-        "lineWeight":"0.0 mm"
+        "lineWeight":"0.0 mm",
+        "lock": false,
+        "on": false,
+        "hover": false
     }
 
 ]

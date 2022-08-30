@@ -11,13 +11,15 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { LayerItemComponent } from './layer-item/layer-item.component';
-
+import { ResizableModule } from 'angular-resizable-element';
+// import { ResizableDivComponent } from './components/resizable-div/resizable-div.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    LayerItemComponent
+    LayerItemComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { LayerItemComponent } from './layer-item/layer-item.component';
     NgScrollbarModule,
     ColorPickerModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    ResizableModule
   ],
   providers: [
     

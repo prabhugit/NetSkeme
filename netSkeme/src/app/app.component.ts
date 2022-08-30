@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { VirtualTimeScheduler } from 'rxjs';
 import layeredData from '../public/layeredData.json';
 import { Item } from './item';
-
+import { ResizeEvent } from 'angular-resizable-element';
+import { FormControl } from '@angular/forms';
 
 interface Linetype {
   value: string;
@@ -21,12 +22,15 @@ interface Lineweight {
 })
 export class AppComponent {
   elements = [...layeredData.layerElements];
+  inputFormControl = new FormControl({ value: null, disabled: true });
   title = 'netSkeme';
   currentItem = { name: 'newLayer'} ;
   selectedNav = "settings"
   value: boolean = false;
-  popup='popup';
+  popup ='popup';
+  lock_unlock_icon="lock_open"
   selectedLayer?: any;
+  width = '300px';
   name= "New Layer";
   color1?:String;
   color2?:String;
@@ -84,7 +88,7 @@ export class AppComponent {
   selectType(event: Event) {
     this.selectedType = (event.target as HTMLSelectElement).value;
     this.elements.map(e=>{
-      if(e.id===this.selectedLayer.id){
+      if(e.id===this.selectedLayer.id && e.id!==0){
         e.lineType=this.selectedType;
       }
     })
@@ -93,20 +97,22 @@ export class AppComponent {
   }
   selectName(event: Event) {
     console.log("name change")
+    if(this.selectedLayer && this.selectedLayer.id!==0){
     this.name = (event.target as HTMLSelectElement).value;
     this.selectedLayer.elementName = this.name
     this.elements.map(e=>{
-      if(e.id===this.selectedLayer.id){
+      if(e.id===this.selectedLayer.id && e.id!==0){
         e.elementName=this.name;
       }
     })
+    }
   }
   addNewLayer(event: Event){
     console.log("Add new layer event",event);
     let id=this.elements.length+1;
     this.selectedLayer={
       id,
-      elementName: this.name,
+      elementName: 'New Layer',
       colorName: "orangecolor",
       colorCode: "color8",
       lineType: "ByLayer",
@@ -117,19 +123,22 @@ export class AppComponent {
 
   deleteLayer(event: Event){
     console.log("Deleting",this.selectedLayer);
-    if(this.selectedLayer){
+    if(this.selectedLayer && this.selectedLayer.id !==0){
       let updatedElements =this.elements.filter(e=> e.id!==this.selectedLayer.id);
       console.log("updatedELements",updatedElements);
       this.selectedLayer = undefined;
       this.elements = [...updatedElements];
+      console.log("After Deleting",this.selectedLayer);
+    } else{
+      console.log("Cannot delet this layer");
     }
-    console.log("After Deleting",this.selectedLayer);
+    
   }
   selectWeight(event: Event) {
     this.selectedWeight = (event.target as HTMLSelectElement).value;
 
     this.elements.map(e=>{
-      if(e.id===this.selectedLayer.id){
+      if(e.id===this.selectedLayer.id && e.id!==0){
         e.lineWeight=this.selectedWeight;
       }
     })
@@ -139,6 +148,42 @@ export class AppComponent {
     let selectedLayer = this.elements.find(e=> e.id===id);
     console.log(selectedLayer);
     this.selectedLayer=selectedLayer;
+    if(this.selectedLayer && this.selectedLayer.id===0){
+      this.inputFormControl.disable();
+    } else {
+      this.inputFormControl.enable();
+    }
     
   }
+  onResizeEnd(event: ResizeEvent): void {
+    console.log('Element was resized', event);
+    this.width=event.rectangle.width+"px";
+  }
+
+  onResizing(event: ResizeEvent) : void {
+    console.log('Element is resizing', event);
+    this.width=event.rectangle.width+"px";
+  }
+
+  toggleLock(event: Event,elem: any) : void {
+    
+      this.elements.map(e=>{
+        if(e.id===elem.id){
+          e.lock=!elem.lock;
+        }
+      })
+    
+    event.stopPropagation();
+  }
+  toggleOnOff(event: Event,elem: any) : void {
+    
+    this.elements.map(e=>{
+      if(e.id===elem.id){
+        e.on=!elem.on;
+      }
+    })
+  
+  event.stopPropagation();
+  }
+
 }
