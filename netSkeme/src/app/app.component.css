@@ -515,6 +515,7 @@ height: 100%;
   margin-top: 2px;
   display: block;
   text-align: center;
+  color: #9E9D9D !important;
 }
 .elementWrapper:hover 
 .elementRight .iconRow mat-icon{

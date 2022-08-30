@@ -79,8 +79,8 @@
                 <span class="material-symbols-outlined" [style.opacity]="(!element.hover && !element.on) ? '0' : '1'" [style.visibility]="(!element.hover && !element.on) ? 'hidden' : 'visible'">lightbulb</span>
               </mat-icon>
             </span>
-            <span class="colorPickerWrapper" [style.background]=element.colorCode>
-            <span class="{{element.colorName}}"  [(colorPicker)]=element.colorCode></span>
+            <span class="colorPickerWrapper" >
+            <span class="{{element.colorName}}"  [(colorPicker)]=element.colorCode [style.background]=element.colorCode></span>
           </span>
             
         </div>

@@ -159,12 +159,23 @@ export class AppComponent {
   }
   onResizeEnd(event: ResizeEvent): void {
     console.log('Element was resized', event);
-    this.width=event.rectangle.width+"px";
+    let w  = event.rectangle.width;
+    if(w && w>=250)
+      this.width=event.rectangle.width+"px";
+    // this.width=event.rectangle.width+"px";
+    else {
+      this.width='250px';
+    }
   }
 
   onResizing(event: ResizeEvent) : void {
     console.log('Element is resizing', event);
-    this.width=event.rectangle.width+"px";
+    let w  = event.rectangle.width;
+    if(w && w>=250)
+      this.width=event.rectangle.width+"px";
+      else {
+        this.width='250px';
+      }
   }
 
   toggleLock(event: Event,elem: any) : void {
