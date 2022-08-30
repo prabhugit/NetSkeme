@@ -426,7 +426,7 @@
 .labelWrappper{
     padding:1rem;
     color:#EAF2FF;
-    font-size:14px;
+    font-size:12px;
     overflow-x: hidden;
     overflow-y: auto;
     white-space: nowrap;
@@ -468,17 +468,21 @@
 .elementWrapper.active {
   background-color: #3A5E75 !important;
 }
-
+.elementLeft {
+  padding: 3px 0 0 5px;
+}
 .elementLeft,  .elementRight {
   display: inline-block;
   width: 50%;
+  
+  cursor: pointer;
 }
 .elementRight > span:nth-child(2){
-  display: inline-block;
-  cursor: pointer;
-  margin: 5px;
-  margin-right: 10px;
-  height: 15px;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 5px;
+    height: 15px;
+    margin-bottom: 1px;
   
 }
 .elementRight {
@@ -486,22 +490,37 @@
   position: relative;
 }
 .elementRight .iconRow {
-  margin-right: 10px;
+  margin-right: 5px;
   display: inline-block;
 }
 .elementRight .iconRow mat-icon > span{
-  padding: 2px;
+  /* padding: 2px; */
   transition: all ease-in-out;
   cursor: pointer;
+  
+}
+.elementWrapper:hover 
+.elementRight .iconRow mat-icon{
+  border: 1px solid transparent ;
 }
 .elementWrapper:hover 
 .elementRight .iconRow mat-icon > span {
   display: inline-block;
   cursor: pointer;
+  transition: all 1s;
 }
-.elementRight .iconRow mat-icon:hover {
-  border: 1px solid #356D8C ;
+.elementRight .iconRow mat-icon {
   display: inline-block;
+  vertical-align: text-bottom;
+  border: 1px solid transparent ;
+  transition: all 1s;
+  margin-right: 5px;
+  padding: 2px;
+}
+.elementWrapper:hover .elementRight .iconRow mat-icon:hover {
+  border: 1px solid #356D8C ;
+  transition: all .5s;
+  background-color: #313640;
 }
 .whitecolor{
     width:15px;
