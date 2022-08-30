@@ -437,6 +437,9 @@
 .layerWrapper {
   max-height: 35vh;
   overflow-y: auto;
+  border-top: 1px solid #485462;
+  padding-top: 2px;
+
 }
 .layerProperties {
   padding: 1rem;;

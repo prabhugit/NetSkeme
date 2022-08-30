@@ -54,6 +54,7 @@
       [enableGhostResize]="true"
       (resizeEnd)="onResizeEnd($event)"
       (resizing) ="onResizing($event)"
+      #leftBox
       > 
       <div
         class="resize-handle-right"
@@ -64,7 +65,6 @@
     <div style="width: 100%">
     <div class="labelWrappper">
       <h2>Layers</h2>
-      <hr />
       <div class="layerWrapper">
       <!-- <ng-scrollbar class="virtual-scroll" [autoHeightDisabled]="false" visibility="hover" appearance="compact"> -->
 
@@ -160,7 +160,7 @@
 <div *ngIf="selectedNav ==='fpt'" class="bg-box-hidden" (mouseover)="retainDiv()">
   <div>FPT</div>
 </div>
-<div class="rightBody">
+<div class="rightBody" [style.width]="'calc(100% - '+width+')'">
   asdf asf adf
 
 </div>

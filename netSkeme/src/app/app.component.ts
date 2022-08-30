@@ -47,9 +47,11 @@ export class AppComponent {
     console.log(this,event);
     // if(item!==this.selectedNav){
       if(this.selectedNav === item){
-        this.selectedNav='';  
+        this.selectedNav='';
+        this.width = '0px';  
       }else {
         this.selectedNav=item;
+        this.width = '300px';  
       }
 
     //   this.value= !this.value
