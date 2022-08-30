@@ -92,7 +92,7 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
@@ -481,8 +481,23 @@
     display: inline-block;
     cursor: pointer;
     margin-right: 5px;
-    height: 15px;
-    margin-bottom: 1px;
+    border: 1px solid #65707a;
+    height: 13px;
+    width: 13px;
+    
+    
+}
+.elementRight > span:nth-child(2) >span{
+display: block;
+width: 100%;
+height: 100%;
+}
+.elementRight > span:nth-child(2):hover{
+  box-shadow: 0px 0px 0px 1.5px #65707a !important;
+}
+.elementRight > span:nth-child(2):hover > span{
+  
+  box-shadow: inset 0px 0px 0px .5px #65707a !important;
   
 }
 .elementRight {
@@ -494,33 +509,45 @@
   display: inline-block;
 }
 .elementRight .iconRow mat-icon > span{
-  /* padding: 2px; */
+  
   transition: all ease-in-out;
   cursor: pointer;
-  
+  margin-top: 2px;
+  display: block;
+  text-align: center;
 }
 .elementWrapper:hover 
 .elementRight .iconRow mat-icon{
   border: 1px solid transparent ;
+  height: 22px;
+  width: 22px;
+  margin: 2px 5px 2px 0;
 }
 .elementWrapper:hover 
 .elementRight .iconRow mat-icon > span {
-  display: inline-block;
+  display: block;
+  margin-top: 2px;
   cursor: pointer;
   transition: all 1s;
+  text-align: center;
+  
 }
 .elementRight .iconRow mat-icon {
-  display: inline-block;
-  vertical-align: text-bottom;
+  height: 22px;
+  width: 22px;
+  vertical-align: bottom;
   border: 1px solid transparent ;
   transition: all 1s;
-  margin-right: 5px;
+  margin: 2px 5px 2px 0;
   padding: 2px;
+  
 }
 .elementWrapper:hover .elementRight .iconRow mat-icon:hover {
   border: 1px solid #356D8C ;
   transition: all .5s;
   background-color: #313640;
+  margin: 2px 5px 2px 0;
+  padding: 2px;
 }
 .whitecolor{
     width:15px;
