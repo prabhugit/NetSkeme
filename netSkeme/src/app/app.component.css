@@ -36,6 +36,7 @@
     background-color: #1976d2;
     color: white;
     font-weight: 600;
+    
   }
 
   .toolbar img {
@@ -317,7 +318,7 @@
 
   .bodyWrapper{
     display:flex;
-    
+    background-color: #1A222A;
   }
 
 
@@ -340,12 +341,13 @@
 }
 .rightBody {
   height: calc(100vh - 60px);
-  
+    color: white;
     /* margin-left: calc(100vh - 60px - 25vw); */
     /* width: 75vw; */
-
+    
    vertical-align: top;
     display: inline-flex;
+    
   
 }
 
@@ -375,7 +377,7 @@
     overflow: auto;
   color: white;
   display: inline-flex;
-  border-right: solid 1px #dedfe2;
+  border-right: solid 1px #6C7279;
   position: relative;
   margin: auto;
 }
