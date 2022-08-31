@@ -24,6 +24,7 @@
     "@angular/router": "^14.1.0",
     "angular-resizable-element": "^6.0.0",
     "bootstrap": "^5.2.0",
+    "ng-zorro-antd": "^14.0.0",
     "ngx-color-picker": "^12.0.1",
     "ngx-scrollbar": "^10.0.1",
     "rxjs": "~7.5.0",

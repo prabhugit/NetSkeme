@@ -5,15 +5,17 @@ import { Item } from './item';
 import { ResizeEvent } from 'angular-resizable-element';
 import { FormControl } from '@angular/forms';
 
-interface Linetype {
+interface Line {
+  className: string,
   value: string;
   viewValue: string;
 }
 
-interface Lineweight {
-  value: string;
-  viewValue: string;
-}
+// interface Lineweight {
+//   id: string,
+//   value: string;
+//   viewValue: string;
+// }
 
 @Component({
   selector: 'app-root',
@@ -45,19 +47,14 @@ export class AppComponent {
 
   changeText(event: any,item: string) {
     console.log(this,event);
-    // if(item!==this.selectedNav){
+    
       if(this.selectedNav === item){
         this.selectedNav='';
-        this.width = '0px';  
+       
       }else {
         this.selectedNav=item;
-        this.width = '300px';  
+        
       }
-
-    //   this.value= !this.value
-    // } else {
-      // this.value= !this.value
-    // }
     
   }
 
@@ -73,16 +70,16 @@ export class AppComponent {
     alert(`Delete the ${item.name}.`);
   }
 
-  ltype: Linetype[] = [
-    {value: 'ByLayer', viewValue: '_______ ByLayer'},
-    {value: 'Continuous', viewValue: '_______ Continuous'},
-    {value: 'Dashed', viewValue: '-------- Dashed'},
+  ltype: Line[] = [
+    {value: 'ByLayer', viewValue: ' ByLayer', className: 'byLayer'},
+    {value: 'Continuous', viewValue: ' Continuous', className: 'continuous'},
+    {value: 'Dashed', viewValue: ' Dashed',className: 'dashed'},
   ];
-  lweight: Lineweight[] = [
-    {value: 'ByLayer', viewValue: 'ByLayer'},
-    {value: '0.0 mm', viewValue: '0.0 mm'},
-    {value: '0.20 mm', viewValue: '0.20 mm'},
-    {value: '1.50 mm', viewValue: '1.50 mm'},
+  lweight: Line[] = [
+    {value: 'ByLayer', viewValue: 'ByLayer', className: 'byLayerWeight'},
+    {value: '0.0 mm', viewValue: '0.0 mm',className: 'zeroWeight'},
+    {value: '0.20 mm', viewValue: '0.20 mm',className: 'twoWeight'},
+    {value: '1.50 mm', viewValue: '1.50 mm',className: 'oneFiveWeight'},
   ];
   selectedType = this.ltype[0].value;
   selectedWeight = this.lweight[0].value;

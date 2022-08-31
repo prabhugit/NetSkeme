@@ -47,7 +47,7 @@
 </div>
 
 <div class="flex-fill">
-<div *ngIf="selectedNav ==='layers'" 
+  <div  
       class="bg-box-hidden rectangle"
       [style.width]="width"
       mwlResizable
@@ -62,7 +62,7 @@
         [resizeEdges]="{ right: true }"
       ></div>
       
-    <div style="width: 100%">
+    <div style="width: 100%" *ngIf="selectedNav ==='layers'">
     <div class="labelWrappper">
       <h2>Layers</h2>
       <div class="layerWrapper">
@@ -131,8 +131,8 @@
         
         <mat-form-field appearance="fill">
           
-          <mat-select [(value)]="selectedLayer.lineType"  class="selectValue" >
-            <mat-option [value]="option.value" *ngFor="let option of ltype">{{ option.viewValue }}</mat-option>
+          <mat-select [(value)]="selectedLayer.lineType" disableOptionCentering class="selectValue"  [ngClass]="{'byLayerValue': selectedLayer.lineType ==='ByLayer','continuousValue': selectedLayer.lineType ==='Continuous','dashedValue': selectedLayer.lineType ==='Dashed'}" panelClass="typeSelect">
+            <mat-option [value]="option.value" *ngFor="let option of ltype" [ngClass]="option.className">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -141,30 +141,34 @@
         <mat-label>Lineweight</mat-label>
         <mat-form-field appearance="fill">
           
-          <mat-select [(value)]="selectedLayer.lineWeight">
-            <mat-option [value]="option.value" *ngFor="let option of lweight">{{ option.viewValue }}</mat-option>
+          <mat-select [(value)]="selectedLayer.lineWeight" disableOptionCentering [ngClass]="{'byLayerWeightValue': selectedLayer.lineWeight ==='ByLayer','zeroMmWeightValue': selectedLayer.lineWeight ==='0.0 mm','twoMmWeightValue': selectedLayer.lineWeight ==='0.20 mm','oneFiveMmWeightValue': selectedLayer.lineWeight ==='1.50 mm'}" panelClass="typeSelect">
+            <mat-option [value]="option.value" *ngFor="let option of lweight" [ngClass]="option.className">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       </div>
     </div>
-  </div>    
+    </div> 
+    <div *ngIf="selectedNav ==='settings'" >
+
+      <div>Settings</div>
+    </div>
+    <div *ngIf="selectedNav ==='ports'" >
+    
+      <div>Ports</div>
+    </div>
+    <div *ngIf="selectedNav ==='fpt'" >
+    
+      <div>FPT</div>
+    </div>   
 <!-- </div> -->
 
-</div>
-<div *ngIf="selectedNav ==='settings'" class="bg-box-hidden" (mouseover)="retainDiv()">
-  <div>Settings</div>
-</div>
-<div *ngIf="selectedNav ==='ports'" class="bg-box-hidden" (mouseover)="retainDiv()">
-  <div>Ports</div>
-</div>
-<div *ngIf="selectedNav ==='fpt'" class="bg-box-hidden" (mouseover)="retainDiv()">
-  <div>FPT</div>
-</div>
-<div class="rightBody" [style.width]="'calc(100% - '+width+')'">
-  asdf asf adf
+  </div>
 
-</div>
+  <div class="rightBody" [style.width]="'calc(100% - '+width+')'">
+    asdf asf adf
+
+  </div>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

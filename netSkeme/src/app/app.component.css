@@ -386,8 +386,13 @@
 }
 
 
-.bg-box-hidden .mat-form-field ,.bg-box-hidden mat-label {
-  width: 50%;
+.bg-box-hidden mat-label {
+  width: 40%;
+  display: inline-block;
+}
+
+.bg-box-hidden .mat-form-field {
+  width: 60%;
   display: inline-block;
 }
 ::ng-deep   .mat-form-field-wrapper .mat-form-field-flex{
@@ -403,9 +408,12 @@
 ::ng-deep .mat-select-arrow{
   color: white !important
 }
-
+::ng-deep .mat-option.mat-active,::ng-deep .mat-option:hover{
+  background-color: #394151 !important
+}
 ::ng-deep  .mat-select-panel{
   background-color: #4D576C !important;
+  
 }
 ::ng-deep  .mat-select-panel-wrap .mat-option-text{
   color: white !important
@@ -422,6 +430,11 @@
 ::ng-deep .layerProperties .mat-form-field-appearance-fill .mat-form-field-underline::before
 {
  background-color: #8D9195 !important;
+}
+::ng-deep .layerProperties .mat-form-field-appearance-fill .mat-form-field-underline .mat-form-field-ripple
+{
+ background-color: transparent !important;
+ 
 }
 .labelWrappper{
     padding:1rem;
@@ -442,7 +455,8 @@
 
 }
 .layerProperties {
-  padding: 1rem;;
+  padding: 1rem;
+  font-size: 12px !important;
 }
 ::ng-deep color-picker open {
     left:0px;
@@ -532,6 +546,132 @@ height: 100%;
   transition: all 1s;
   text-align: center;
   
+}
+::ng-deep mat-select .mat-select-min-line {
+  padding-left: 45% !important;
+}
+::ng-deep  .mat-option.byLayer,
+::ng-deep  .mat-option.continuous,
+::ng-deep  .mat-option.dashed,
+::ng-deep .mat-option.byLayerWeight,
+::ng-deep .mat-option.zeroWeight,
+::ng-deep .mat-option.twoWeight,
+::ng-deep .mat-option.oneFiveWeight
+ {
+  padding-left: 55% !important;
+  
+}
+
+/* ::ng-deep .mat-option:hover::before{
+
+} */
+::ng-deep .mat-option.mat-focus-indicator:hover::before,
+::ng-deep .mat-option.byLayer::before,
+::ng-deep .mat-option.continuous::before,
+::ng-deep .mat-option.dashed::before
+{
+  display: block;
+  transform: rotate(45deg);
+  height: 12px;
+  width: 7px;
+  border: none;
+  border-bottom: 2px solid #6DD2FF;
+  border-radius: 0;
+  border-right: 2px solid #6DD2FF;
+  top: 30%;
+  left: 5%;
+  position: absolute;
+}
+
+::ng-deep .mat-option.byLayerWeight::before,
+::ng-deep .mat-option.zeroWeight::before,
+::ng-deep .mat-option.twoWeight::before,
+::ng-deep .mat-option.oneFiveWeight::before
+{
+  display: block;
+  transform: rotate(45deg);
+  height: 12px;
+  width: 7px;
+  border: none;
+  border-bottom: 2px solid #6DD2FF;
+  border-radius: 0;
+  border-right: 2px solid #6DD2FF;
+  top: 30%;
+  left: 5%;
+  position: absolute;
+}
+::ng-deep .mat-option.byLayerWeight::after,
+::ng-deep .mat-option.zeroWeight::after,
+::ng-deep .mat-option.twoWeight::after,
+::ng-deep .mat-option.oneFiveWeight::after{
+  content: "";
+  border-top: 1px solid white;
+  left: 15%;
+  top: 50%;
+  width: 30%;
+  position: absolute;
+}
+::ng-deep .mat-option.twoWeight::after {
+  top: 45% !important;
+  border-top: 2px solid white !important;
+}
+::ng-deep .mat-option.oneFiveWeight::after {
+  top: 40% !important;
+  border-top: 4px solid white !important;
+}
+::ng-deep .byLayerValue .mat-select-min-line{
+  display: inline-block;
+}
+::ng-deep .byLayerValue .mat-select-min-line::after,
+::ng-deep .continuousValue .mat-select-min-line::after,
+::ng-deep .dashedValue .mat-select-min-line::after
+ {
+   
+  content: "";
+  border-top: 1px solid white;
+  left: 1%;
+  top: 50%;
+  width: 30%;
+  position: absolute;
+}
+::ng-deep .dashedValue .mat-select-min-line:after{
+  border-top: 1px dashed white !important;
+}
+::ng-deep .mat-option.byLayer::after , 
+::ng-deep .mat-option.continuous::after,
+::ng-deep .mat-option.dashed::after {
+  
+  content: "";
+  border-top: 1px solid white;
+  left: 15%;
+  top: 50%;
+  width: 30%;
+  position: absolute;
+}
+
+::ng-deep .byLayerWeightValue .mat-select-min-line::after,
+::ng-deep .zeroMmWeightValue .mat-select-min-line::after,
+::ng-deep .twoMmWeightValue .mat-select-min-line::after,
+::ng-deep .oneFiveMmWeightValue .mat-select-min-line::after
+ {
+   
+  content: "";
+  border-top: 1px solid white;
+  left: 1%;
+  top: 45%;
+  width: 30%;
+  position: absolute;
+}
+::ng-deep .twoMmWeightValue .mat-select-min-line::after{
+  border-top: 2px solid white !important;
+  top: 40% !important;
+}
+::ng-deep .oneFiveMmWeightValue .mat-select-min-line::after{
+  border-top: 4px solid white !important;
+  top: 35% !important;
+}
+::ng-deep .mat-option.dashed::after {
+  border-top: 1px dashed white;
 }
 .elementRight .iconRow mat-icon {
   height: 22px;
@@ -655,4 +795,37 @@ height: 100%;
 
 .hide {
   display: none;
+}
+
+::ng-deep .typeSelect {
+  
+  margin-top: 16px !important;
+    min-width: 100% !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    margin-left: 16px !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent !important;
+}
+::ng-deep .layerProperties .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(-27%) !important;
+}
+::ng-deep .mat-select-arrow{
+width: 5px !important;
+height: 5px !important;
+border: none !important;
+border-left: 1px solid white !important;
+border-bottom: 1px solid white !important;
+/* border-top: 5px solid; */
+margin: 0 4px;
+transform: rotate(-45deg);
+}
+::ng-deep .layerProperties .mat-form-field.mat-focused .mat-select-arrow{
+  transform: rotate(135deg) !important;
+}
+
+::ng-deep .layerProperties .mat-form-field.mat-focused .mat-select-arrow-wrapper {
+  transform: translateY(-5%) !important;
 }
