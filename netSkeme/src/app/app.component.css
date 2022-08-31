@@ -329,8 +329,16 @@
    
 
 }
-.sidebar ul li.active, .sidebar ul li:hover {
+.sidebar ul li.active {
   background-color: #3B4453;
+  border-left: 0;
+}
+.sidebar ul li.active:hover{
+  border: 0 !important;
+}
+.sidebar ul li:hover {
+  background-color: #3A5E75;
+  border-left: 2px solid transparent;
 }
 .sidebar ul {
     list-style-type:none;
