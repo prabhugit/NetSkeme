@@ -416,12 +416,21 @@
 ::ng-deep .mat-select-arrow{
   color: white !important
 }
-::ng-deep .mat-option.mat-active,::ng-deep .mat-option:hover{
+::ng-deep .mat-option:hover{
   background-color: #394151 !important
 }
+
+::ng-deep .mat-option.mat-active:hover{
+  background-color: #394151 !important
+}
+
+::ng-deep .mat-option.mat-active{
+  background-color: transparent !important
+}
+
 ::ng-deep  .mat-select-panel{
   background-color: #4D576C !important;
-  
+  box-shadow: none !important; 
 }
 ::ng-deep  .mat-select-panel-wrap .mat-option-text{
   color: white !important
@@ -807,7 +816,7 @@ height: 100%;
 
 ::ng-deep .typeSelect {
   
-  margin-top: 16px !important;
+  margin-top: 17px !important;
     min-width: 100% !important;
     left: 0 !important;
     border-radius: 0 !important;
