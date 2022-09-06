@@ -10,12 +10,6 @@ interface Line {
   viewValue: string;
 }
 
-// interface Lineweight {
-//   id: string,
-//   value: string;
-//   viewValue: string;
-// }
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -52,8 +46,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
     this.scrollToBottom();
   }
   ngAfterViewChecked(): void {
-    this.scrollToBottom();
+    
   }
+
 
   scrollToBottom(): void {
     try {
@@ -135,7 +130,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
       lineWeight: "ByLayer"
     }
     this.elements.push(this.selectedLayer)
-    this.ngAfterViewChecked();
+    setTimeout(()=>this.scrollToBottom(),100);
   }
 
   deleteLayer(event: Event){
