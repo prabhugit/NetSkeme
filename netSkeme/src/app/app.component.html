@@ -65,7 +65,7 @@
     <div style="width: 100%" *ngIf="selectedNav ==='layers'">
     <div class="labelWrappper">
       <h2>Layers</h2>
-      <div class="layerWrapper">
+      <div class="layerWrapper"  #scrollMe>
       <!-- <ng-scrollbar class="virtual-scroll" [autoHeightDisabled]="false" visibility="hover" appearance="compact"> -->
 
         <div *ngFor="let element of elements" class="elementWrapper" (mouseover)="element.hover=true"  (mouseout)="element.hover=false" [ngClass]="{active : selectedLayer && element.id === selectedLayer.id}" (mousedown)="selectLayer($event, element.id)">
@@ -116,19 +116,20 @@
         <hr />
       </div>
       <div>
-        <div>
+        <div class="layerFormWrapper">
           <mat-label>Name</mat-label>
+          <div class="formField">
           <mat-form-field appearance="fill" *ngIf="selectedLayer.id!==0" >
             
             <input matInput type="text" [value]="selectedLayer.elementName" (keyup)="selectName($event)" />
             
           </mat-form-field>
           <span *ngIf="selectedLayer.id===0">{{selectedLayer.elementName}}</span>
-        
+          </div>
         </div>
-        <div>
+        <div class="layerFormWrapper">
         <mat-label>Linetype</mat-label>
-        
+        <div class="formField">
         <mat-form-field appearance="fill">
           
           <mat-select [(value)]="selectedLayer.lineType" disableOptionCentering class="selectValue"  [ngClass]="{'byLayerValue': selectedLayer.lineType ==='ByLayer','continuousValue': selectedLayer.lineType ==='Continuous','dashedValue': selectedLayer.lineType ==='Dashed'}" panelClass="typeSelect">
@@ -136,15 +137,18 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div>
+      </div>
+      <div class="layerFormWrapper">
 
         <mat-label>Lineweight</mat-label>
+        <div class="formField">
         <mat-form-field appearance="fill">
           
           <mat-select [(value)]="selectedLayer.lineWeight" disableOptionCentering [ngClass]="{'byLayerWeightValue': selectedLayer.lineWeight ==='ByLayer','zeroMmWeightValue': selectedLayer.lineWeight ==='0.0 mm','twoMmWeightValue': selectedLayer.lineWeight ==='0.20 mm','oneFiveMmWeightValue': selectedLayer.lineWeight ==='1.50 mm'}" panelClass="typeSelect">
             <mat-option [value]="option.value" *ngFor="let option of lweight" [ngClass]="option.className">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
       </div>
       </div>
     </div>
@@ -166,8 +170,12 @@
   </div>
 
   <div class="rightBody" [style.width]="'calc(100% - '+width+')'">
-    asdf asf adf
-
+    
+    <div class="drawArea">
+      <div class="drawAreaInner">
+      
+    </div>
+    </div>
   </div>
 </div>
 

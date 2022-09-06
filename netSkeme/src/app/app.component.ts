@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { VirtualTimeScheduler } from 'rxjs';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import layeredData from '../public/layeredData.json';
 import { Item } from './item';
 import { ResizeEvent } from 'angular-resizable-element';
@@ -22,7 +21,12 @@ interface Line {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewChecked {
+ 
+
+  @ViewChild('scrollMe') 
+  private layerContainer: ElementRef | undefined;
+
   elements = [...layeredData.layerElements];
   inputFormControl = new FormControl({ value: null, disabled: true });
   title = 'netSkeme';
@@ -44,7 +48,20 @@ export class AppComponent {
   color8?:String;
   color9?:String;
   
+  ngOnInit(): void {
+    this.scrollToBottom();
+  }
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
+  }
 
+  scrollToBottom(): void {
+    try {
+       if(this.layerContainer){
+          this.layerContainer.nativeElement.scrollTop = this.layerContainer.nativeElement.scrollHeight;
+       }
+    } catch(err) { }                 
+  }
   changeText(event: any,item: string) {
     console.log(this,event);
     
@@ -118,6 +135,7 @@ export class AppComponent {
       lineWeight: "ByLayer"
     }
     this.elements.push(this.selectedLayer)
+    this.ngAfterViewChecked();
   }
 
   deleteLayer(event: Event){
